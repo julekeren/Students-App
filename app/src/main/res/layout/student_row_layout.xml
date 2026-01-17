@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/students_row_image_view"
+        android:id="@+id/image_view"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/studentpic" />
 
     <TextView
-        android:id="@+id/students_row_name_view"
+        android:id="@+id/name_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,38 +26,38 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/students_row_image_view"
+        app:layout_constraintStart_toEndOf="@+id/image_view"
         tools:layout_editor_absoluteY="21dp" />
 
     <TextView
-        android:id="@+id/students_row_id_view"
+        android:id="@+id/id_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/students_row_phone_view"
-        app:layout_constraintStart_toStartOf="@+id/students_row_name_view"
-        app:layout_constraintTop_toBottomOf="@+id/students_row_name_view" />
+        app:layout_constraintBottom_toTopOf="@+id/phone_view"
+        app:layout_constraintStart_toStartOf="@+id/name_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/name_text_view" />
 
     <TextView
-        android:id="@+id/students_row_phone_view"
+        android:id="@+id/phone_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/students_row_address_view"
-        app:layout_constraintStart_toStartOf="@+id/students_row_id_view"
-        app:layout_constraintTop_toBottomOf="@+id/students_row_id_view" />
+        app:layout_constraintBottom_toTopOf="@+id/address_view"
+        app:layout_constraintStart_toStartOf="@+id/id_view"
+        app:layout_constraintTop_toBottomOf="@+id/id_view" />
 
     <TextView
-        android:id="@+id/students_row_address_view"
+        android:id="@+id/address_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/students_row_phone_view"
-        app:layout_constraintTop_toBottomOf="@+id/students_row_phone_view" />
+        app:layout_constraintStart_toStartOf="@+id/phone_view"
+        app:layout_constraintTop_toBottomOf="@+id/phone_view" />
 
     <CheckBox
-        android:id="@+id/students_row_checkbox"
+        android:id="@+id/checkbox_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"

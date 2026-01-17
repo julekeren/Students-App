@@ -9,7 +9,7 @@ class Model private constructor(){
                 id = "id ${1000 + i}",
                 phone = "phone $i",
                 address = "address $i",
-            false
+            isPresent= false
             )
             students.add(student)
         }
