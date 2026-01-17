@@ -1,5 +1,6 @@
 package com.game.studentsapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.game.studentsapp.models.Model
 class StudentDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStudentDetailsBinding
+    private var studentPosition: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +26,23 @@ class StudentDetailsActivity : AppCompatActivity() {
             insets
         }
 
-        val studentPosition = intent.getIntExtra("STUDENT_POSITION", -1)
-        if (studentPosition != -1) {
+        studentPosition = intent.getIntExtra("STUDENT_POSITION", -1)
+        loadStudentData()
+
+        binding.studentDetailsEditButton.setOnClickListener {
+            val intent = Intent(this, EditStudentActivity::class.java)
+            intent.putExtra("STUDENT_POSITION", studentPosition)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadStudentData()
+    }
+
+    private fun loadStudentData() {
+        if (studentPosition != -1 && studentPosition < Model.shared.students.size) {
             val student = Model.shared.students[studentPosition]
             
             binding.studentDetailsName.text = student.name
@@ -37,10 +54,8 @@ class StudentDetailsActivity : AppCompatActivity() {
             binding.studentDetailsChecked.setOnCheckedChangeListener { _, isChecked ->
                 student.isPresent = isChecked
             }
-        }
-
-        binding.studentDetailsEditButton.setOnClickListener {
-
+        } else if (studentPosition >= Model.shared.students.size) {
+            finish()
         }
     }
 }
