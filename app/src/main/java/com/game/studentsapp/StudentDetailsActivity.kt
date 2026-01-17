@@ -20,6 +20,10 @@ class StudentDetailsActivity : AppCompatActivity() {
         binding = ActivityStudentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Student details"
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -34,6 +38,11 @@ class StudentDetailsActivity : AppCompatActivity() {
             intent.putExtra("STUDENT_POSITION", studentPosition)
             startActivity(intent)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     override fun onResume() {
