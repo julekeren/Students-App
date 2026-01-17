@@ -32,8 +32,6 @@ class StudentRowViewHolder(
 
         binding.nameTextView.text = student.name
         binding.idView.text = student.id
-        binding.phoneView.text = student.phone
-        binding.addressView.text = student.address
 
         binding.checkboxView.apply {
             isChecked = student.isPresent

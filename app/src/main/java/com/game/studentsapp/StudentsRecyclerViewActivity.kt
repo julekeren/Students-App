@@ -1,5 +1,6 @@
 package com.game.studentsapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,11 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
         binding?.recyclerView?.setHasFixedSize(true)
         val adapter = StudentsAdapter(Model.shared.students)
         binding?.recyclerView?.adapter = adapter
+
+        binding?.addStudentFab?.setOnClickListener {
+            val intent = Intent(this, AddStudentActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
